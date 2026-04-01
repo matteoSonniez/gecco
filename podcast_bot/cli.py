@@ -20,7 +20,7 @@ STYLE = Style([
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Generateur de podcast (script GPT + audio ElevenLabs)."
+        description="Generateur de podcast (script Claude + audio ElevenLabs v3)."
     )
     parser.add_argument("--theme", type=str, help="Theme (ex: savoir, decouverte)")
     parser.add_argument("--subcategory", type=str, help="Sous-categorie (ex: espace)")

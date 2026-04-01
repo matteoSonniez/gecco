@@ -2,7 +2,7 @@ from pathlib import Path
 
 from podcast_bot.config import AppConfig
 from podcast_bot.elevenlabs_client import resolve_voice_id, synthesize_audio
-from podcast_bot.openai_client import generate_script
+from podcast_bot.claude_client import generate_script
 from podcast_bot.utils import output_audio_path
 
 IMPLEMENTED_THEMES = {"savoir", "decouverte", "mystere", "culture"}

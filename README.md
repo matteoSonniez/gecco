@@ -1,7 +1,7 @@
-# Podcast Bot Python (GPT + ElevenLabs v3)
+# Podcast Bot Python (Claude + ElevenLabs v3)
 
 Ce projet genere automatiquement:
-1. un script de podcast ultra naturel (OpenAI `gpt-5.2`),
+1. un script de livre audio podcast ultra naturel (Anthropic Claude),
 2. puis l'audio final MP3 (ElevenLabs `eleven_v3`),
 3. stocke dans `upload/<Theme>/` a la racine.
 
@@ -13,8 +13,8 @@ Ce projet genere automatiquement:
 | `humaine` | Douce, empathique, conversationnelle | psychologie, societe, sante, dev perso, education, voyage | Bientot |
 | `decouverte` | Expressive, contemplative, captivante | espace, environnement, nature, archeologie, mythologie, mysteres du monde | Actif |
 | `tech` | Energique, jeune, fluide, rythmee | technologie, IA, informatique, business, finance, medias | Bientot |
-| `culture` | Sophistiquee, expressive, artistique | arts, litterature, musique, cinema, architecture, histoire de l'art | Bientot |
-| `mystere` | Profonde, tendue, immersive, cinematographique | faits divers, true crime, paranormal, thriller, enquete, suspense | Bientot |
+| `culture` | Sophistiquee, expressive, artistique | arts, litterature, musique, cinema, architecture, histoire de l'art | Actif |
+| `mystere` | Profonde, tendue, immersive, cinematographique | faits divers, true crime, paranormal, thriller, enquete, suspense | Actif |
 
 ## Installation
 
@@ -29,8 +29,8 @@ pip install -r requirements.txt
 1) Cree un fichier `.env` a partir de `.env.example`
 2) Renseigne tes variables:
 
-- `OPENAI_API_KEY`
-- `OPENAI_MODEL=gpt-5.2`
+- `ANTHROPIC_API_KEY`
+- `ANTHROPIC_MODEL=claude-sonnet-4-20250514`
 - `ELEVENLABS_API_KEY`
 - `ELEVENLABS_MODEL_ID=eleven_v3`
 - `VOIX_SAVOIR=<voice_id>` (une variable par theme)
@@ -46,7 +46,7 @@ python main.py
 ```
 
 Le script affiche les themes disponibles puis demande:
-- le theme (`savoir`, `decouverte`)
+- le theme (`savoir`, `decouverte`, `mystere`, `culture`)
 - la duree cible (minutes)
 - le sous-theme exact
 - le style voix (`creative`, `natural`, `robust`)
@@ -58,6 +58,8 @@ Mode ligne de commande:
 ```bash
 python main.py --theme savoir --minutes 6 --subtheme "la gravitation" --voice-style natural --energy medium --draft-count 3 --save-script
 python main.py --theme decouverte --minutes 5 --subtheme "les volcans sous-marins" --voice-style natural --energy medium --draft-count 3 --save-script
+python main.py --theme mystere --minutes 8 --subtheme "l'affaire Dupont de Ligonnes" --voice-style natural --energy medium --draft-count 3 --save-script
+python main.py --theme culture --minutes 6 --subtheme "Guernica de Picasso" --voice-style natural --energy medium --draft-count 3 --save-script
 ```
 
 Lister les voix ElevenLabs (nom + id):

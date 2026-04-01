@@ -42,8 +42,8 @@ class ThemeConfig:
 
 @dataclass(frozen=True)
 class AppConfig:
-    openai_api_key: str
-    openai_model: str
+    anthropic_api_key: str
+    anthropic_model: str
     elevenlabs_api_key: str
     elevenlabs_model_id: str
     default_voice_id: str
@@ -54,8 +54,8 @@ class AppConfig:
 def load_config() -> AppConfig:
     load_dotenv()
 
-    openai_api_key = os.getenv("OPENAI_API_KEY", "").strip()
-    openai_model = os.getenv("OPENAI_MODEL", "gpt-5.2").strip()
+    anthropic_api_key = os.getenv("ANTHROPIC_API_KEY", "").strip()
+    anthropic_model = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-20250514").strip()
     elevenlabs_api_key = os.getenv("ELEVENLABS_API_KEY", "").strip()
     elevenlabs_model_id = os.getenv("ELEVENLABS_MODEL_ID", "eleven_v3").strip()
     default_voice_id = os.getenv("ELEVENLABS_VOICE_ID", "").strip()
@@ -95,8 +95,8 @@ def load_config() -> AppConfig:
     }
 
     return AppConfig(
-        openai_api_key=openai_api_key,
-        openai_model=openai_model,
+        anthropic_api_key=anthropic_api_key,
+        anthropic_model=anthropic_model,
         elevenlabs_api_key=elevenlabs_api_key,
         elevenlabs_model_id=elevenlabs_model_id,
         default_voice_id=default_voice_id,
